@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import { AuthContext } from '../App';
 
+
 function HomeComp() {
     const {state} = useContext(AuthContext)
     return (

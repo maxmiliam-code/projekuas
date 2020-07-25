@@ -6,7 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,    
+    NavLink,   
     NavbarText,
     Button
 } from 'reactstrap';
@@ -21,12 +21,12 @@ function MenuCompo(props) {
     return (
         <div>
             <Navbar className="navbar-dark bg-dark" expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand href="/">LandryKoe</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/homepage">HomePAge</NavLink>
+                            <NavLink href="/"></NavLink>
                         </NavItem>                                               
                     </Nav>
                     <NavbarText>

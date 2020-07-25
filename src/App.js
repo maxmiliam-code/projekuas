@@ -4,6 +4,10 @@ import LoginComp from './Component/LoginComp';
 import HomeComp from './Component/HomeComp';
 import RegisterComp from './Component/RegisterComp';
 import MenuCompo from './Component/MenuCompo';
+import PelangganComp from './Component/PelangganComp';
+import TambahPelComp from './Component/TambahPelComp';
+import NavbarComp from './Component/NavbarComp';
+import EditPelComp from './Component/EditPelComp';
 //Context
 export const AuthContext = createContext()
 
@@ -33,7 +37,7 @@ const reducer = (state, action) => {
         isAuthenticated: false,
         user: null
       }
-    
+
     default:
       return state
   }
@@ -64,11 +68,15 @@ function App() {
               }}
             />
           }
-          
-          <Route exact path="/" component={LoginComp}/>
-          <Route exact path="/homepage" component={HomeComp}/>
-          <Route exact path="/register" component={RegisterComp}/>
+          <NavbarComp />
+          <Route exact path="/" component={LoginComp} />
+          <Route exact path="/homepage" component={HomeComp} />
+          <Route exact path="/register" component={RegisterComp} />
+          <Route exact path="/pelanggan" component={PelangganComp} />
+          <Route exact path="/pelanggan/tambah" component={TambahPelComp} />
+          <Route exact path="/pelanggan/edit" component={EditPelComp} />
         </AuthContext.Provider>
+
       </Switch>
     </BrowserRouter>
   );
