@@ -8,6 +8,9 @@ import PelangganComp from './Component/PelangganComp';
 import TambahPelComp from './Component/TambahPelComp';
 import NavbarComp from './Component/NavbarComp';
 import EditPelComp from './Component/EditPelComp';
+import TransaksiComp from './Component/TransaksiComp';
+import TambahTranComp from './Component/TambahTranComp';
+import EditTranComp from './Component/EditTranComp';
 //Context
 export const AuthContext = createContext()
 
@@ -75,6 +78,9 @@ function App() {
           <Route exact path="/pelanggan" component={PelangganComp} />
           <Route exact path="/pelanggan/tambah" component={TambahPelComp} />
           <Route exact path="/pelanggan/edit" component={EditPelComp} />
+          <Route exact path="/transaksi" component={TransaksiComp} />
+          <Route exact path="/transaksi/tambah" component={TambahTranComp} />
+          <Route exact path="/transaksi/edit" component={EditTranComp} />
         </AuthContext.Provider>
 
       </Switch>

@@ -6,41 +6,41 @@ import {Link,NavLink} from 'react-router-dom'
 
 const api = 'http://localhost:3002'
 
-class PelangganComp extends Component {
+class TransaksiComp extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            pelanggan: [],
+            transaksi: [],
             response: '',
             display: 'none'
         }
     }
 
     componentDidMount(){
-        axios.get(api+'/tampil').then(res=>{
+        axios.get(api+'/tampil/transaksi').then(res=>{
             this.setState({
-                pelanggan: res.data.values
+                transaksi: res.data.values
             })
         })
     }
     
-    Deletepelanggan = (idpelanggan)=>{
-        const {pelanggan} = this.state
+    Deletetransaksi = (idtransaksi)=>{
+        const {transaksi} = this.state
         const data = qs.stringify({
-            id_pelanggan: idpelanggan
+            id_transaksi: idtransaksi
         })
-        axios.delete(api+'/hapus', {
+        axios.delete(api+'/hapus/transaksi', {
             data: data,
             headers: {'Content-type' : 'application/x-www-form-urlencoded'}
         }).then(json=>{
             if(json.data.status ===200){
                 this.setState({
                     response: json.data.values,
-                    pelanggan: pelanggan.filter(pelanggan=> pelanggan.id_pelanggan !== idpelanggan),
+                    transaksi: transaksi.filter(transaksi=> transaksi.id_transaksi !== idtransaksi),
                     display: 'block'
                 })
-                this.props.history.push('/pelanggan')
+                this.props.history.push('/transaksi')
             }else{
                 this.setState({
                     response: json.data.values,
@@ -53,36 +53,42 @@ class PelangganComp extends Component {
     render() {
         return (
             <Container>
-                <h2>Data pelanggan</h2>
+                <h2>Data transaksi</h2>
                 <Alert color="success" style={{display: this.state.display}}>
                     {this.state.response}
                 </Alert>
-                <NavLink to="/pelanggan/tambah" className="nav-link"><Button color="success">Tambah Data</Button></NavLink>
+                <NavLink to="/transaksi/tambah" className="nav-link"><Button color="success">Tambah Data</Button></NavLink>
                 <hr/>
                 <Table className="table-bordered">
                     <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>NO.HP</th>
-                            <th>Alamat</th>
+                        <tr>  
+                            <th>Nama Pelanggan</th>
+                            <th>Berat</th>
+                            <th>Tgl.Selesai</th>
+                            <th>Jenis Pakaian</th>
+                            <th>Jumlah</th>
                             <th>Opsi</th>
                         </tr>                        
                     </thead>
                     <tbody>
-                        {this.state.pelanggan.map(pelanggan =>
-                            <tr key={pelanggan.id_pelanggan}>
-                                <td>{pelanggan.nama}</td>
-                                <td>{pelanggan.no_hp}</td>
-                                <td>{pelanggan.alamat}</td>
+                        {this.state.transaksi.map(transaksi =>
+                            <tr key={transaksi.id_transaksi}>
+                                <td>{transaksi.id_pelanggan}</td>
+                                <td>{transaksi.berat}</td>
+                                <td>{transaksi.tgl_selesai}</td>
+                                <td>{transaksi.jenis_pakaian}</td>
+                                <td>{transaksi.jumlah}</td>
                                 <td>
                                     <Link to = {
                                         {
-                                            pathname: '/pelanggan/edit',
+                                            pathname: '/transaksi/edit',
                                             state: {
-                                                id_pelanggan: pelanggan.id_pelanggan,
-                                                nama: pelanggan.nama,
-                                                no_hp: pelanggan.no_hp,
-                                                alamat: pelanggan.alamat
+                                                id_transaksi: transaksi.id_transaksi,
+                                                id_pelanggan: transaksi.id_pelanggan,
+                                                berat: transaksi.berat,
+                                                tgl_selesai: transaksi.tgl_selesai,
+                                                jenis_pakaian: transaksi.jenis_pakaian,
+                                                jumlah: transaksi.jumlah
                                             }
                                         }
                                     }>
@@ -90,7 +96,7 @@ class PelangganComp extends Component {
                                         
                                     </Link>
                                     <span></span>
-                                        <Button onClick={()=>this.Deletepelanggan(pelanggan.id_pelanggan)} color="danger">Hapus</Button>
+                                        <Button onClick={()=>this.Deletetransaksi(transaksi.id_transaksi)} color="danger">Hapus</Button>
 
                                 </td>
                             </tr>
@@ -103,4 +109,4 @@ class PelangganComp extends Component {
     }
 }
 
-export default PelangganComp
+export default TransaksiComp
