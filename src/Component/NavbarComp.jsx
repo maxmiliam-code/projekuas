@@ -7,7 +7,7 @@ import {
     Nav,
     NavItem
 } from 'reactstrap';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const NavbarComp = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,19 +31,13 @@ const NavbarComp = (props) => {
                             <NavLink to="/transaksi" className="nav-link">Transaksi</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/kelas" className="nav-link">Class</NavLink>
+                            <NavLink to="/laporan" className="nav-link">Laporan</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/hooks" className="nav-link">Hook</NavLink>
+                            <NavLink to="/harga" className="nav-link">Harga</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/useeffects" className="nav-link">Use Effects</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to="/produk" className="nav-link">Produk</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to="/reducer" className="nav-link">Reducer</NavLink>
+                            <NavLink to="/user" className="nav-link">Ganti Password</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

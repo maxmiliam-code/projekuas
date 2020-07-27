@@ -11,12 +11,12 @@ class EditTranComp extends Component {
         super(props)
 
         this.state = {
-            id_transaksi : this.props.location.state.id_pelanggan,
-            id_pelanggan : this.props.location.state.nama,
-            berat : this.props.location.state.no_hp,
-            tgl_selesai : this.props.location.state.alamat,
-            jenis_pakaian : this.props.location.state.no_hp,
-            jumlah : this.props.location.state.alamat,
+            id_transaksi : this.props.location.state.id_transaksi,
+            id_pelanggan : this.props.location.state.id_pelanggan,
+            berat : this.props.location.state.berat,
+            tgl_selesai : this.props.location.state.tgl_selesai,
+            jenis_pakaian : this.props.location.state.jenis_pakaian,
+            jumlah : this.props.location.state.jumlah,
             response:'',
             display:'none'
         }

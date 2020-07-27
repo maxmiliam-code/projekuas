@@ -11,6 +11,11 @@ import EditPelComp from './Component/EditPelComp';
 import TransaksiComp from './Component/TransaksiComp';
 import TambahTranComp from './Component/TambahTranComp';
 import EditTranComp from './Component/EditTranComp';
+import EditHargaComp from './Component/EditHargaComp';
+import HargaComp from './Component/HargaComp';
+import LaporanComp from './Component/LaporanComp';
+import UserComp from './Component/UserComp';
+import EditUser from './Component/EditUser';
 //Context
 export const AuthContext = createContext()
 
@@ -81,6 +86,11 @@ function App() {
           <Route exact path="/transaksi" component={TransaksiComp} />
           <Route exact path="/transaksi/tambah" component={TambahTranComp} />
           <Route exact path="/transaksi/edit" component={EditTranComp} />
+          <Route exact path="/laporan" component={LaporanComp} />
+          <Route exact path="/harga" component={HargaComp} />
+          <Route exact path="/harga/edit" component={EditHargaComp} />
+          <Route exact path="/user" component={UserComp} />
+          <Route exact path="/user/edit" component={EditUser} />
         </AuthContext.Provider>
 
       </Switch>
